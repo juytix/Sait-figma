@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>admin panel</title>
+<style>
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-size: 2em;
+}
+
+.container {
+  background-color: #222;
+  padding: 60px; 
+  border-radius: 16px; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 4em; 
+    margin-bottom: 30px; 
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 30px 60px;
+  border-radius: 12px; 
+  cursor: pointer;
+  font-size: 2em; 
+  margin: 20px; 
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <button id="userButton">Пользователи</button>
+  <button id="projectsButton">Проекты</button>
+  <a href="1.html" class="new-repo-button">Back</a>
+</div>
+
+<script>
+  document.getElementById('userButton').addEventListener('click', () => {
+    window.location.href = 'user.html'; 
+  });
+  document.getElementById('projectsButton').addEventListener('click', () => {
+    window.location.href = 'projects.html'; 
+  });
+</script>
+</body>
+</html>

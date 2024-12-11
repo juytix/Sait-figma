@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register and Login</title>
+    <style>
+body {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px; 
+    padding: 30px; 
+    border-radius: 10px;
+    background-color: #222;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); 
+}
+
+h1 {
+    font-size: 4em; 
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 15px 0;
+    cursor: pointer;
+    font-size: 1.5em; 
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.input {
+    padding: 15px; 
+    margin: 10px 0;
+    font-size: 1.5em; 
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+}
+
+.admin-button {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 15px 30px; 
+    margin: 15px 0;
+    cursor: pointer;
+    font-size: 1.5em; 
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-button:hover {
+    background-color: #902b1f;
+}
+
+.hidden {
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container" id="authContainer">
+        <h1>System Control Version</h1>
+        <div id="loginRegisterButtons">
+            <button class="button" id="registerButton">Register</button>
+            <button class="button" id="loginButton">Login</button>
+            <button class="admin-button" id="adminButton">Admin</button>
+        </div>
+        <div class="container hidden" id="loginForm">
+            <input type="text" class="input" id="email" placeholder="E-mail" required>
+            <input type="password" class="input" id="password" placeholder="Password" required>
+            <div class="actions">
+                <button class="button" id="backButton">Back</button>
+                <button class="button" id="okButton">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginRegisterButtons = document.getElementById('loginRegisterButtons');
+        const loginForm = document.getElementById('loginForm');
+
+        document.getElementById('registerButton').addEventListener('click', () => {
+            loginRegisterButtons.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            document.getElementById('okButton').textContent = 'Register';
+            document.getElementById('okButton').onclick = () => alert('Registration completed!');
+        });
+
+        document.getElementById('loginButton').addEventListener('click', () => {
+            loginRegisterButtons.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            document.getElementById('okButton').textContent = 'Login';
+            document.getElementById('okButton').onclick = () => window.location.href = 'next_page.html';
+        });
+
+        document.getElementById('backButton').addEventListener('click', () => {
+            loginForm.classList.add('hidden');
+            loginRegisterButtons.classList.remove('hidden');
+        });
+
+        document.getElementById('adminButton').addEventListener('click', () => {
+            if (confirm("Точно хотите перейти в панель админа?")) {
+                window.location.href = 'admin.html';
+            }
+        });
+    </script>
+</body>
+</html>
